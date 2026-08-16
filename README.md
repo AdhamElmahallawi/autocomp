@@ -15,3 +15,16 @@ Instead of deploying heavy eBPF cluster operators to production, `autocomp` uses
 Make sure you have Go installed, then run:
 ```bash
 go install [github.com/adhamelmahallawi/autocomp/cmd/autocomp@latest](https://github.com/adhamelmahallawi/autocomp/cmd/autocomp@latest)
+```
+
+## Usage
+Trace a standard binary:
+```bash
+autocomp -o profile.json -- ls /tmp
+```
+
+Merge multiple test runs into one profile:
+```bash
+autocomp -o profile.json -a -- curl [https://api.my-app.com/test1](https://api.my-app.com/test1)
+autocomp -o profile.json -a -- curl [https://api.my-app.com/test2](https://api.my-app.com/test2)
+```
